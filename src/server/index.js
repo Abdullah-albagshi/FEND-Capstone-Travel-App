@@ -21,6 +21,8 @@ app.get('/', function(req, res) {
     res.sendFile('dist/index.html');
 });
 
+app.use(require('./routes/routesIndex'));
+
 // set port to be 3000 or a given port in .env config
 const PORT = process.env.PORT || 3000;
 
