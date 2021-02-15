@@ -14,16 +14,16 @@ module.exports = {
         libraryTarget: 'var',
         library: 'Client',
     },
+    devServer: {
+        proxy: {
+            '/': {
+                target: 'http://localhost:3000',
+                secure: false,
+                changeOrigin: true,
+            },
+        },
+    },
     devtool: 'source-map',
-    // devServer: {
-    //     proxy: {
-    //         '/key': {
-    //             target: 'http://localhost:3000',
-    //             secure: false,
-    //             changeOrigin: true,
-    //         },
-    //     },
-    // },
     stats: 'verbose',
     module: {
         rules: [{
@@ -35,6 +35,19 @@ module.exports = {
                 test: /\.scss$/,
                 use: ['style-loader', 'css-loader', 'sass-loader'],
             },
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
+            },
+            {
+                test: /\.(png|jpe?g|gif)$/i,
+                loader: 'file-loader',
+                options: {
+                    name: '[name].[ext]',
+                    outputPath: 'images',
+                },
+            },
+
         ],
     },
     plugins: [
