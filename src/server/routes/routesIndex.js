@@ -6,15 +6,13 @@ const router = express.Router();
 
 router.get('/geonames/:city', (req, res) => {
     let city = req.params.city;
-    console.log(city);
-
     const geoNameApiKey = process.env.GEONAME_KEY
 
     let getDetails = async() => {
         const serverReq = await axios.get(
             `http://api.geonames.org/searchJSON?q=${city}&username=${geoNameApiKey}`
         );
-        const serverRes = serverReq.data
+        const serverRes = serverReq.data.geonames[0]
         res.json(serverRes)
     };
     return getDetails()
@@ -23,7 +21,6 @@ router.get('/geonames/:city', (req, res) => {
 
 router.get('/weatherbit/:city', (req, res) => {
     let { lat, lon, days = 16 } = JSON.parse(req.params.city);
-    console.log(lat, lon, days);
     const weatherBitApiKey = process.env.WEATHERBIT_KEY
 
     let getDetails = async() => {
@@ -39,14 +36,13 @@ router.get('/weatherbit/:city', (req, res) => {
 
 router.get('/pixabay/:city', (req, res) => {
     let city = req.params.city;
+    let cityName = city.split(' ').join('+')
     const pixabayKey = process.env.PIXABAY_KEY
-
     let getDetails = async() => {
         const serverReq = await axios.get(
-            `https://pixabay.com/api/?key=${pixabayKey}&q=${city}&catrgory=travel`
+            `https://pixabay.com/api/?key=${pixabayKey}&q=${cityName}&catrgory=travel`
         );
         const serverRes = serverReq.data
-        console.log(serverRes);
         res.json(serverRes)
     };
     return getDetails()
