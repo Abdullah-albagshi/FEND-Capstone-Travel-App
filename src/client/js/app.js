@@ -21,7 +21,6 @@ const endDate = document.querySelector('#end-date');
 const today = new Date();
 
 let cityName, lat, lon, carouselItemSlide, accordionItem, tripInfoSave;
-let isTrip = false;
 
 function addCountryToSelect() {
     countries().then((data) => {
@@ -201,6 +200,12 @@ saveBtn.addEventListener('click', () => {
     localStorage.setItem('carouselItemSlide', carouselItemSlide);
     localStorage.setItem('accordionItem', accordionItem);
     localStorage.setItem('tripInfoSave', tripInfoSave);
+    alerts.innerHTML = `<div class="alert alert-success  alert-dismissible fade show " role="alert">
+    <strong>Trip saved</strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>`;
 });
 
 loadBtn.addEventListener('click', () => {
