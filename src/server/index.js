@@ -6,7 +6,6 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 dotenv.config();
 
-const apiKey = process.env.API_KEY;
 
 // Start up an instance of app
 const app = express();
@@ -29,3 +28,6 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`http://localhost:${PORT}`);
 });
+
+
+module.exports = { app }
