@@ -3,7 +3,6 @@ import { geoNames } from './API/geonamesAPI';
 import { weather } from './API/weatherbitAPI';
 import { pixabay } from './API/pixabayAPI';
 
-
 const createBtn = document.querySelector('.create');
 const saveBtn = document.querySelector('.save');
 const loadBtn = document.querySelector('.load');
@@ -221,16 +220,22 @@ loadBtn.addEventListener('click', () => {
     tripWeatherImage.classList.remove('d-none');
 });
 
-removeBtn.addEventListener('click', remove);
+removeBtn.addEventListener('click', () => remove(true));
 
-function remove() {
+function remove(r = false) {
     tripWeatherImage.classList.add('d-none');
     tripInfo.classList.add('d-none');
-    localStorage.clear();
-
+    if (r) localStorage.clear();
     carouselItem.innerHTML = '';
     accordion.innerHTML = '';
     tripInfo.innerHTML = '';
 }
 
-export { addCountryToSelect, tripDescription, checkDate, addItemsToCarousel, addItemsToAccordion, remove }
+export {
+    addCountryToSelect,
+    tripDescription,
+    checkDate,
+    addItemsToCarousel,
+    addItemsToAccordion,
+    remove,
+};
