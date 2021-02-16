@@ -1,31 +1,38 @@
-# Natural-Language-Processing
+# Travel App
 
 ## Table of Contents
 
 * [Description](#Description)
+* [API](#API)
 * [Technologies](#Technologies)
 * [Setup](#Setup)
-* [Starter-Code](#Starter-Code)
+* [Environment variables](#Environment-variables)
 
 
 ## Description
 
-This Project uses a Natural Language Processing API to analyze articles using the technologies below
+This project requires you to build out a travel app that, at a minimum, obtains a desired trip location & date from the user, and displays weather and an image of the location using information obtained from external APIs. Given that this is the Capstone project, it's highly encouraged for you to go above and beyond, adding additional functionality and customization to truly stand out with a project you are proud to have at the top of your portfolio!
 
+
+## API(s)
+
+* [Country API](https://restcountries.eu/) - RESTful Api for countries names and details
+* [Geonames API](http://www.geonames.org/export/web-services.html) - Geographical database from which the location data is pulled
+* [Weahterbit API](weatherbit.io) - Weather API for current and future weather data
+* [Pixabay API](https://pixabay.com/api/docs/) - RESTful interface for searching and retrieving free images and videos
 
 
 
 
 ## Technologies
 Project is created with:
-* `HTML`
-* `SCSS`
-* `Javascript`
-* `Node.js`
-* `Express`
-* `Webpack`
-* `Jest`
-
+* [Bootstrap](https://getbootstrap.com/) - The CSS framework used 
+* [Sass](https://sass-lang.com/documentation) - The web framework used
+* [Webpack](https://webpack.js.org/concepts/) - Asset Management
+* [Babel](https://babeljs.io/) - JavaScript Compiler
+* [Node.js](https://nodejs.org/en/) - JavaScript Runtime
+* [Express.js](https://expressjs.com/) - Server Framework for Node.js
+* [Jest](https://jestjs.io/) - Testing suit
 
 
 
@@ -60,12 +67,15 @@ npm run test
 
 create a file `.env` in project directory 
 
-add a variable `API_ID` and assign it to your API key i.e(`API_ID=xxxxxxxxxxxxxxxxxxxxxxxxx`)
+add a variables `GEONAME_KEY, WEATHERBIT_KEY and PIXABAY_KEY` and assign them to your keys 
+```
+GEONAME_KEY=xxxxxxxxxxxxxxxxxxxxxxxxx 
+```
+WEATHERBIT_KEY=xxxxxxxxxxxxxxxxxxxxxxxxx 
+```
+PIXABAY_KEY=xxxxxxx-xxxxxxxxxxxxxxxxxxxxxxxxx
+```
 
 
 
 
-
-## Starter-Code
-
-Starter code taken from Udacity [repository](https://github.com/udacity/fend/tree/refresh-2019/projects/evaluate-news-nlp).
