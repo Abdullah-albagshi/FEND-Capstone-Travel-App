@@ -2,16 +2,127 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Travel App</title>
+    <script src="https://kit.fontawesome.com/95450d916d.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <footer>
-        <p>Made with &#10084;&#65039; By <a href="https://github.com/Abdullah-albagshi">Abdullah Albagshi</a></p>
-    </footer>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-5">
+        <a class="navbar-brand mb-0 h1" href="#"><strong><i class="fas fa-plane-departure"></i></strong> Travel App</a
+			>
+		</nav>
+		<div class="container">
+			<div class="form">
+				<div class="alerts mb-3"></div>
+				<div class="row inputs">
+					<div class="col">
+						<p class="mb-1">Select country:</p>
+						<select
+							class="selectpicker countrypicker d-block"
+							data-flag="true"
+							data-live-search="true"
+						>
+							<option value="" disabled selected>
+								Select a country
+							</option>
+						</select>
+					</div>
+				</div>
+				<div class="row inputs">
+					<div class="col">
+						<p class="mb-1">Start Date:</p>
+						<input type="date" name="startDate" id="start-date" />
+					</div>
+					<div class="col">
+						<p class="mb-1">End Date:</p>
+						<input type="date" name="endDate" id="end-date" />
+					</div>
+				</div>
+			</div>
+			<div class="row justify-content-center my-4 text-center">
+				<div class="col-md-3 col-sm-12 my-2">
+					<button class="btn btn-primary btn-block create">
+						Create Trip
+					</button>
+				</div>
+				<div class="col-md-3 col-sm-12 my-2">
+					<button class="btn btn-success btn-block save">
+						Save Trip
+					</button>
+				</div>
+				<div class="col-md-3 col-sm-12 my-2">
+					<button class="btn btn-info btn-block load">
+						Load Trip
+					</button>
+				</div>
 
+				<div class="col-md-3 col-sm-12 my-2">
+					<button class="btn btn-danger btn-block remove">
+						Remove Trip
+					</button>
+				</div>
+			</div>
+			<div id="loader"></div>
+
+			<div class="row text-center my-5">
+				<div id="trip-info" class="col d-none"></div>
+			</div>
+			<div class="row d-none trip-weather-image">
+				<div class="col-lg-8">
+					<div
+						id="carouselControls"
+						class="carousel slide"
+						data-ride="carousel"
+					>
+						<div class="carousel-inner"></div>
+						<a
+							class="carousel-control-prev"
+							href="#carouselControls"
+							role="button"
+							data-slide="prev"
+						>
+							<span
+								class="carousel-control-prev-icon"
+								aria-hidden="true"
+							></span>
+							<span class="sr-only">Previous</span>
+						</a>
+        <a class="carousel-control-next" href="#carouselControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+        </div>
+        </div>
+        <div id="accordion" class="col-lg-4 my-3 my-lg-0">
+            <div class="accordion" id="accordionDate">
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+										The Weather
+									</button>
+                        </h2>
+                    </div>
+                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionDate">
+                        <div class="card-body"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+
+        <footer>
+            <p>
+                Made with &#10084;&#65039; By Abdullah albagshi
+                <a href="https://github.com/Abdullah-albagshi" target="_blank"><i class="fab fa-github"></i
+				></a>
+                <a href="https://www.linkedin.com/in/abdullah-albagshi/" target="_blank"><i class="fab fa-linkedin"></i
+				></a>
+            </p>
+        </footer>
 </body>
 <script>
     // Check that service workers are supported
