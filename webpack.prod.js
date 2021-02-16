@@ -31,13 +31,16 @@ module.exports = {
                 use: ['style-loader', 'css-loader']
             },
             {
-                test: /\.(png|jpe?g|gif)$/i,
+                test: /\.(jpe?g|png|gif|svg)$/i,
                 loader: 'file-loader',
                 options: {
-                    name: '[name].[ext]',
-                    outputPath: 'images',
-                },
+                    name: '/assets/img/[name].[ext]'
+                }
             },
+            {
+                test: /\.(svg|eot|woff|woff2|ttf)$/,
+                use: ['file-loader']
+            }
         ],
     },
     plugins: [
