@@ -31,8 +31,16 @@ function addCountryToSelect() {
         });
     });
 }
+document.addEventListener('DOMContentLoaded', function() {
+    createBtn.addEventListener('click', createTrip);
+    saveBtn.addEventListener('click', saveTrip);
+    loadBtn.addEventListener('click', loadTrip);
+    removeBtn.addEventListener('click', () => remove(true));
+})
 
-createBtn.addEventListener('click', async() => {
+
+
+async function createTrip() {
     remove();
 
     if (checkDate() == false) {
@@ -59,8 +67,8 @@ createBtn.addEventListener('click', async() => {
     await addItemsToAccordion(weatherData);
     await addItemsToCarousel(pixabayData);
     loader.classList.remove('loader');
-    isTrip = true;
-});
+
+}
 
 function tripDescription(geoData) {
     let daysTillTrip = parseInt(
@@ -191,7 +199,8 @@ function addItemsToAccordion(weather) {
     accordion.innerHTML = accordionItem;
 }
 
-saveBtn.addEventListener('click', () => {
+
+function saveTrip() {
     if (!carouselItemSlide || !accordionItem || !tripInfoSave) {
         alerts.innerHTML = `<div class="alert alert-danger  alert-dismissible fade show " role="alert">
         <strong>You can't save without creating a trip</strong></div>`;
@@ -206,9 +215,11 @@ saveBtn.addEventListener('click', () => {
     <span aria-hidden="true">&times;</span>
   </button>
 </div>`;
-});
 
-loadBtn.addEventListener('click', () => {
+}
+
+
+function loadTrip() {
     if (!localStorage.getItem('tripInfoSave') ||
         !localStorage.getItem('accordionItem') ||
         !localStorage.getItem('carouselItemSlide')
@@ -223,9 +234,9 @@ loadBtn.addEventListener('click', () => {
     carouselItem.firstElementChild.classList.add('active');
     tripInfo.classList.remove('d-none');
     tripWeatherImage.classList.remove('d-none');
-});
 
-removeBtn.addEventListener('click', () => remove(true));
+}
+
 
 function remove(r = false) {
     tripWeatherImage.classList.add('d-none');
@@ -235,6 +246,8 @@ function remove(r = false) {
     accordion.innerHTML = '';
     tripInfo.innerHTML = '';
 }
+
+
 
 export {
     addCountryToSelect,
