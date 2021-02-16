@@ -1,0 +1,22 @@
+@media (max-width:525px) {
+    .dropdown {
+        .btn {
+            width: 100%!important;
+        }
+        &-menu {
+            width: 250px;
+            .inner.show {
+                overflow-x: hidden;
+                max-height: 250px;
+            }
+        }
+    }
+    .carousel {
+        &-inner {
+            .carousel-img {
+                width: 100%;
+                height: 40vh;
+            }
+        }
+    }
+}
