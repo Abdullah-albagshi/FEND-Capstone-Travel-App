@@ -1,0 +1,25 @@
+.container {
+    min-height: 100vh;
+    justify-content: center;
+    margin-bottom: 50px;
+    .form {
+        background-color: #252a34;
+        color: #eeeeee;
+        padding: 50px;
+        border-radius: 10px;
+        box-shadow: 1px 1px 10px #222831;
+    }
+    .inputs {
+        margin: 20px 0;
+        .col {
+            align-items: center;
+            justify-content: center;
+            p {
+                font-size: 1.5rem;
+            }
+            input {
+                width: 100%;
+            }
+        }
+    }
+}
