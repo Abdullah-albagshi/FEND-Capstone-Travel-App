@@ -1,5 +1,5 @@
 //import API caller functions
-import { countries } from './API/restAPI';
+// import { countries } from './API/restAPI';
 import { geoNames } from './API/geonamesAPI';
 import { weather } from './API/weatherbitAPI';
 import { pixabay } from './API/pixabayAPI';
@@ -23,16 +23,7 @@ const today = new Date();
 
 let cityName, lat, lon, carouselItemSlide, accordionItem, tripInfoSave;
 
-// add options to select input 
-function addCountryToSelect() {
-    countries().then((data) => {
-        data.forEach((opt) => {
-            let option = document.createElement('option');
-            option.text = opt.name;
-            select.add(option);
-        });
-    });
-}
+
 
 // make sure click Event Listener can be called when document fully loaded
 document.addEventListener('DOMContentLoaded', function() {
@@ -302,7 +293,7 @@ function remove(r = false) {
 
 // export functions
 export {
-    addCountryToSelect,
+    // addCountryToSelect,
     tripDescription,
     checkDate,
     addItemsToCarousel,
